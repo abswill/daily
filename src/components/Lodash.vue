@@ -3,39 +3,31 @@
 </template>
 
 <script>
-// https://juejin.im/post/5d1c7b7f6fb9a07eeb13c3a8
 import _ from 'lodash';
 
 export default {
   name: 'Lodash',
-  data() {
-    return {
-      //   array01: [2,1,2]
-      // }
-    };
-  },
   mounted() {
-    this.uniq();
-    this.uniqBy01();
-    this.uniqBy02();
-    this.uniqWith();
-    this.pick();
-    this.pickBy();
-    this.omit();
-    this.omitBy();
-    this.mapValues();
-    this.mapKeys();
+    // this.uniq();
+    // this.uniqBy01();
+    // this.uniqBy02();
+    // this.pick();
+    // this.pickBy();
+    // this.omit();
+    // this.omitBy();
+    // this.mapValues();
+    // this.mapKeys();
     this.merge();
   },
   methods: {
-    // 数组方法；
+    // 数组方法: uniq, uniqBy, uniqWith;
     uniq() {
       const result = _.uniq([2, 1, 2]);
-      console.log('uniq:', result);
+      console.log('uniq', result);
     },
     uniqBy01() {
       const result = _.uniqBy([2.1, 1.2, 2.33], Math.floor);
-      console.log('uniqBy01:', result);
+      console.log('uniqBy:', result);
     },
     uniqBy02() {
       const result = _.uniqBy(
@@ -51,15 +43,18 @@ export default {
         { x: 3, y: 4 },
         { x: 5, y: 6 },
       ];
-      const result = _.uniqWith(array, (arraVal, otherVal) => arraVal.x === otherVal.x);
+      const result = _.uniqWith(
+        array,
+        (arrVal, otherVal) => arrVal.X === otherVal.x,
+      );
       console.log('uniqWith:', result);
     },
-    // 对象方法；
+    // 对象方法: pick, pickBy, omit, omitBy, mapValues, mapKeys, merge
     pick() {
       const obj = {
         a: 1, b: '2', c: 3, d: '99',
       };
-      const res = _.pick(obj, ['a', 'c', 'd']);
+      const res = _.pick(obj, ['a', 'b', 'd']);
       console.log('pick:', res);
     },
     pickBy() {
@@ -102,9 +97,5 @@ export default {
     },
   },
 };
+// 参考文献 https://juejin.im/post/5d1c7b7f6fb9a07eeb13c3a8
 </script>
-
-<style scoped>
-.wrapper {
-}
-</style>
