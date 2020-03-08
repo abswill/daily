@@ -11,6 +11,13 @@ export default {
     // this.uniq();
     // this.uniqBy01();
     // this.uniqBy02();
+    // this.pick();
+    // this.pickBy();
+    // this.omit();
+    // this.omitBy();
+    // this.mapValues();
+    // this.mapKeys();
+    this.merge();
   },
   methods: {
     // 数组方法: uniq, uniqBy, uniqWith;
@@ -42,6 +49,53 @@ export default {
       );
       console.log('uniqWith:', result);
     },
+    // 对象方法: pick, pickBy, omit, omitBy, mapValues, mapKeys, merge
+    pick() {
+      const obj = {
+        a: 1, b: '2', c: 3, d: '99',
+      };
+      const res = _.pick(obj, ['a', 'b', 'd']);
+      console.log('pick:', res);
+    },
+    pickBy() {
+      const obj = { a: 1, b: '2', c: 'uu' };
+      const res = _.pickBy(obj, value => _.isNumber(value));
+      console.log('pickBy:', res);
+    },
+    omit() {
+      const obj = { a: 1, b: '2', c: 3 };
+      const res = _.omit(obj, ['a', 'c']);
+      console.log('omit:', res);
+    },
+    omitBy() {
+      const obj = { a: 1, b: '2', c: 3 };
+      const res = _.omitBy(obj, value => _.isNumber(value));
+      console.log('omitBy:', res);
+    },
+    mapValues() {
+      const users = {
+        fred: { user: 'fred', age: 40 },
+        pebbles: { user: 'pebbles', age: 1 },
+      };
+      const res = _.mapValues(users, value => value.age);
+      console.log('mapValues:', res);
+    },
+    mapKeys() {
+      const obj = { a: 1, b: 2 };
+      const res = _.mapKeys(obj, (value, key) => key + value);
+      console.log('mapKeys:', res);
+    },
+    merge() {
+      const users = {
+        data: [{ user: 'barney' }, { user: 'fred' }, { lll: 'fred' }],
+      };
+      const ages = {
+        data: [{ age: 36 }, { age: 40 }, { sss: 40 }],
+      };
+      const res = _.merge(users, ages);
+      console.log('merge:', res);
+    },
   },
 };
+// 参考文献 https://juejin.im/post/5d1c7b7f6fb9a07eeb13c3a8
 </script>
