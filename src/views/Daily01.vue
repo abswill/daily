@@ -1,15 +1,17 @@
 <template>
-  <div>
+  <layout>
     <Lodash></Lodash>
-  </div>
+  </layout>
 </template>
 <script>
+import layout from '@/components/Layout.vue';
 import Lodash from '../components/Lodash.vue';
 
 export default {
   name: 'Daily01',
 
   components: {
+    layout,
     Lodash,
   },
 };
