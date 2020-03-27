@@ -20,6 +20,11 @@ const routes = [
     name: 'daily01',
     component: () => import(/* webpackChunkName: "about" */ '../views/Daily01.vue'),
   },
+  {
+    path: '/daily07',
+    name: 'daily07',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Daily07.vue'),
+  },
 ];
 
 const router = new VueRouter({
